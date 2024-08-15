@@ -18,9 +18,9 @@ export default function Courses({ courses }: { courses: any[]; }) {
         <FaAlignJustify className="me-4 fs-4 mb-1" />
         {course && course.name} &gt; {pathname.split("/")[4]}
       </h2>
-      
+
       <hr />
-      
+
       <div className="d-flex">
         <div className="d-none d-md-block">
           <CoursesNavigation />
@@ -42,6 +42,6 @@ export default function Courses({ courses }: { courses: any[]; }) {
           </Routes>
         </div>
       </div>
-    
+
     </div>
 );}
