@@ -33,10 +33,8 @@ export default function AssignmentEditor() {
     }
 
     const handleSave = () => {
-      const newAssignment = {
-        _id: id || new Date().getTime().toString(),
+      const newAssignment: any = {
         title,
-        course: cid,
         description,
         points,
         dueDate,
@@ -46,6 +44,7 @@ export default function AssignmentEditor() {
 
 
       if (id && id !== "new") {
+        newAssignment._id = assignment._id; 
         saveAssignment(newAssignment);
       } else {
         createAssignment(newAssignment);
@@ -55,6 +54,7 @@ export default function AssignmentEditor() {
     };
 
     
+    console.log("Rendering Link with cid:", cid);
     
     return (
       <div id="wd-assignments-editor" className="container">

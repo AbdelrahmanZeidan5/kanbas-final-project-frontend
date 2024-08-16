@@ -53,14 +53,14 @@ export default function Assignments() {
             </div>
 
             <ul className="wd-assignment-items list-group rounded-0">
-              {assignments.filter((assignment: any) => assignment.course === cid).map((assignment: any) => (
+              {assignments.map((assignment: any) => (
                 <li key={assignment._id} className="wd-assignment-item list-group-item d-flex align-items-center p-3 ps-1">
                   <div className="d-flex align-items-center">
                     <BsGripVertical className="me-2 fs-3" />
                     <FaRegEdit className="me-2 fs-3 assignment-icon" />
                   </div>
                   <div className="flex-grow-1">
-                    <a className="wd-assignment-link text-decoration-none text-dark" href={`#/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`}>
+                    <a className="wd-assignment-link text-decoration-none text-dark" href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
                       <strong>{assignment.title}</strong>
                     </a>
                     <div className="assignment-details">
