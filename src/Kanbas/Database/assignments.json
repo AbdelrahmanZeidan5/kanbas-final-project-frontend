@@ -1,23 +1,182 @@
 [
-    { "title": "React Components Assignment", "course": "RS101", "description": "Build various React components.", "points": 100, "dueDate": "2024-05-13", "availableFrom": "2024-05-06", "availableUntil": "2024-05-20" },
-    { "title": "State and Props Analysis", "course": "RS101", "description": "Analyze state and props in React.", "points": 100, "dueDate": "2024-06-15", "availableFrom": "2024-06-01", "availableUntil": "2024-06-20" },
-    { "title": "React Lifecycle Project", "course": "RS101", "description": "Work on React lifecycle methods.", "points": 100, "dueDate": "2024-07-20", "availableFrom": "2024-07-10", "availableUntil": "2024-07-25" },
-    { "title": "HTML Basics Quiz", "course": "RS102", "description": "Test your knowledge on HTML basics.", "points": 50, "dueDate": "2024-08-10", "availableFrom": "2024-08-01", "availableUntil": "2024-08-15" },
-    { "title": "Forms and Inputs Analysis", "course": "RS102", "description": "Analyze HTML forms and inputs.", "points": 75, "dueDate": "2024-09-05", "availableFrom": "2024-08-25", "availableUntil": "2024-09-10" },
-    { "title": "Semantic HTML Project", "course": "RS102", "description": "Work on a project using semantic HTML.", "points": 100, "dueDate": "2024-10-01", "availableFrom": "2024-09-20", "availableUntil": "2024-10-05" },
-    { "title": "CSS Selectors Task", "course": "RS103", "description": "Complete tasks related to CSS selectors.", "points": 80, "dueDate": "2024-11-10", "availableFrom": "2024-11-01", "availableUntil": "2024-11-15" },
-    { "title": "Flexbox and Grid Layout", "course": "RS103", "description": "Design layouts using Flexbox and Grid.", "points": 100, "dueDate": "2024-12-05", "availableFrom": "2024-11-25", "availableUntil": "2024-12-10" },
-    { "title": "Responsive Design Exam", "course": "RS103", "description": "Exam on responsive web design.", "points": 100, "dueDate": "2024-12-20", "availableFrom": "2024-12-10", "availableUntil": "2024-12-25" },
-    { "title": "JavaScript Fundamentals Report", "course": "RS104", "description": "Write a report on JavaScript fundamentals.", "points": 100, "dueDate": "2024-05-13", "availableFrom": "2024-05-06", "availableUntil": "2024-05-20" },
-    { "title": "DOM Manipulation Project", "course": "RS104", "description": "Project on DOM manipulation using JavaScript.", "points": 100, "dueDate": "2024-06-15", "availableFrom": "2024-06-01", "availableUntil": "2024-06-20" },
-    { "title": "Asynchronous JavaScript Exam", "course": "RS104", "description": "Exam on asynchronous JavaScript.", "points": 100, "dueDate": "2024-07-20", "availableFrom": "2024-07-10", "availableUntil": "2024-07-25" },
-    { "title": "TypeScript Basics Analysis", "course": "RS105", "description": "Analyze the basics of TypeScript.", "points": 100, "dueDate": "2024-08-10", "availableFrom": "2024-08-01", "availableUntil": "2024-08-15" },
-    { "title": "TypeScript with React Project", "course": "RS105", "description": "Project integrating TypeScript with React.", "points": 100, "dueDate": "2024-09-05", "availableFrom": "2024-08-25", "availableUntil": "2024-09-10" },
-    { "title": "Advanced TypeScript Quiz", "course": "RS105", "description": "Quiz on advanced TypeScript topics.", "points": 100, "dueDate": "2024-10-01", "availableFrom": "2024-09-20", "availableUntil": "2024-10-05" },
-    { "title": "NodeJS Basics Task", "course": "RS106", "description": "Complete basic tasks in NodeJS.", "points": 100, "dueDate": "2024-11-10", "availableFrom": "2024-11-01", "availableUntil": "2024-11-15" },
-    { "title": "Building APIs with NodeJS", "course": "RS106", "description": "Build APIs using NodeJS.", "points": 100, "dueDate": "2024-12-05", "availableFrom": "2024-11-25", "availableUntil": "2024-12-10" },
-    { "title": "NodeJS Performance Exam", "course": "RS106", "description": "Exam on NodeJS performance optimization.", "points": 100, "dueDate": "2024-12-20", "availableFrom": "2024-12-10", "availableUntil": "2024-12-25" },
-    { "title": "Angular Components Quiz", "course": "RS107", "description": "Quiz on Angular components.", "points": 100, "dueDate": "2024-05-13", "availableFrom": "2024-05-06", "availableUntil": "2024-05-20" },
-    { "title": "RxJS and State Management Project", "course": "RS107", "description": "Project on RxJS and state management in Angular.", "points": 100, "dueDate": "2024-06-15", "availableFrom": "2024-06-01", "availableUntil": "2024-06-20" },
-    { "title": "Angular Universal Report", "course": "RS107", "description": "Write a report on Angular Universal.", "points": 100, "dueDate": "2024-07-20", "availableFrom": "2024-07-10", "availableUntil": "2024-07-25" }
+    {
+        "_id": "A101",
+        "title": "React Components Assignment",
+        "course": "RS101",
+        "description": "Build various React components.",
+        "points": 100,
+        "dueDate": "2024-05-13",
+        "availableFrom": "2024-05-06",
+        "availableUntil": "2024-05-20"
+    },
+    {
+        "_id": "A102",
+        "title": "State and Props Analysis",
+        "course": "RS101",
+        "description": "Analyze state and props in React.",
+        "points": 100,
+        "dueDate": "2024-06-15",
+        "availableFrom": "2024-06-01",
+        "availableUntil": "2024-06-20"
+    },
+    {
+        "_id": "A103",
+        "title": "React Lifecycle Project",
+        "course": "RS101",
+        "description": "Work on React lifecycle methods.",
+        "points": 100,
+        "dueDate": "2024-07-20",
+        "availableFrom": "2024-07-10",
+        "availableUntil": "2024-07-25"
+    },
+    {
+        "_id": "A201",
+        "title": "HTML Basics Quiz",
+        "course": "RS102",
+        "description": "Test your knowledge on HTML basics.",
+        "points": 50,
+        "dueDate": "2024-08-10",
+        "availableFrom": "2024-08-01",
+        "availableUntil": "2024-08-15"
+    },
+    {
+        "_id": "A202",
+        "title": "Forms and Inputs Analysis",
+        "course": "RS102",
+        "description": "Analyze HTML forms and inputs.",
+        "points": 75,
+        "dueDate": "2024-09-05",
+        "availableFrom": "2024-08-25",
+        "availableUntil": "2024-09-10"
+    },
+    {
+        "_id": "A203",
+        "title": "Semantic HTML Project",
+        "course": "RS102",
+        "description": "Work on a project using semantic HTML.",
+        "points": 100,
+        "dueDate": "2024-10-01",
+        "availableFrom": "2024-09-20",
+        "availableUntil": "2024-10-05"
+    },
+    {
+        "_id": "A301",
+        "title": "CSS Selectors Task",
+        "course": "RS103",
+        "description": "Complete tasks related to CSS selectors.",
+        "points": 80,
+        "dueDate": "2024-11-10",
+        "availableFrom": "2024-11-01",
+        "availableUntil": "2024-11-15"
+    },
+    {
+        "_id": "A302",
+        "title": "Flexbox and Grid Layout",
+        "course": "RS103",
+        "description": "Design layouts using Flexbox and Grid.",
+        "points": 100,
+        "dueDate": "2024-12-05",
+        "availableFrom": "2024-11-25",
+        "availableUntil": "2024-12-10"
+    },
+    {
+        "_id": "A303",
+        "title": "Responsive Design Exam",
+        "course": "RS103",
+        "description": "Exam on responsive web design.",
+        "points": 100,
+        "dueDate": "2024-12-20",
+        "availableFrom": "2024-12-10",
+        "availableUntil": "2024-12-25"
+    },
+    {
+        "_id": "A401",
+        "title": "JavaScript Fundamentals Report",
+        "course": "RS104",
+        "description": "Write a report on JavaScript fundamentals.",
+        "points": 100,
+        "dueDate": "2024-05-13",
+        "availableFrom": "2024-05-06",
+        "availableUntil": "2024-05-20"
+    },
+    {
+        "_id": "A402",
+        "title": "DOM Manipulation Project",
+        "course": "RS104",
+        "description": "Project on DOM manipulation using JavaScript.",
+        "points": 100,
+        "dueDate": "2024-06-15",
+        "availableFrom": "2024-06-01",
+        "availableUntil": "2024-06-20"
+    },
+    {
+        "_id": "A403",
+        "title": "Asynchronous JavaScript Exam",
+        "course": "RS104",
+        "description": "Exam on asynchronous JavaScript.",
+        "points": 100,
+        "dueDate": "2024-07-20",
+        "availableFrom": "2024-07-10",
+        "availableUntil": "2024-07-25"
+    },
+    {
+        "_id": "A501",
+        "title": "TypeScript Basics Analysis",
+        "course": "RS105",
+        "description": "Analyze the basics of TypeScript.",
+        "points": 100,
+        "dueDate": "2024-08-10",
+        "availableFrom": "2024-08-01",
+        "availableUntil": "2024-08-15"
+    },
+    {
+        "_id": "A502",
+        "title": "TypeScript with React Project",
+        "course": "RS105",
+        "description": "Project integrating TypeScript with React.",
+        "points": 100,
+        "dueDate": "2024-09-05",
+        "availableFrom": "2024-08-25",
+        "availableUntil": "2024-09-10"
+    },
+    {
+        "_id": "A503",
+        "title": "Advanced TypeScript Quiz",
+        "course": "RS105",
+        "description": "Quiz on advanced TypeScript topics.",
+        "points": 100,
+        "dueDate": "2024-10-01",
+        "availableFrom": "2024-09-20",
+        "availableUntil": "2024-10-05"
+    },
+    {
+        "_id": "A601",
+        "title": "NodeJS Basics Task",
+        "course": "RS106",
+        "description": "Complete basic tasks in NodeJS.",
+        "points": 100,
+        "dueDate": "2024-11-10",
+        "availableFrom": "2024-11-01",
+        "availableUntil": "2024-11-15"
+    },
+    {
+        "_id": "A602",
+        "title": "Building APIs with NodeJS",
+        "course": "RS106",
+        "description": "Build APIs using NodeJS.",
+        "points": 100,
+        "dueDate": "2024-12-05",
+        "availableFrom": "2024-11-25",
+        "availableUntil": "2024-12-10"
+    },
+    {
+        "_id": "A603",
+        "title": "NodeJS Performance Exam",
+        "course": "RS106",
+        "description": "Exam on NodeJS performance optimization.",
+        "points": 100,
+        "dueDate": "2024-12-20",
+        "availableFrom": "2024-12-10",
+        "availableUntil": "2024-12-25"
+    }
 ]
