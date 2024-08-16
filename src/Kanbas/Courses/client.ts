@@ -4,27 +4,40 @@ const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 
 export const fetchAllCourses = async () => {
-    console.log(COURSES_API);
-    const { data } = await axios.get(COURSES_API, { withCredentials: true });
+    const { data } = await axios.get(COURSES_API, {
+        withCredentials: true,
+        headers: {
+            'Cache-Control': 'no-cache', // Ensure no caching
+            'Pragma': 'no-cache'         // Additional header for backward compatibility
+        }
+    });
     return data;
 };
 
 export const findCourseById = async (id: string) => {
-    const response = await axios.get(`${COURSES_API}/${id}`);
+    const response = await axios.get(`${COURSES_API}/${id}`, {
+        withCredentials: true
+    });
     return response.data;
 };
 
 export const createCourse = async (course: any) => {
-    const response = await axios.post(COURSES_API, course);
+    const response = await axios.post(COURSES_API, course, {
+        withCredentials: true
+    });
     return response.data;
 };
 
 export const deleteCourse = async (id: string) => {
-    const response = await axios.delete(`${COURSES_API}/${id}`);
+    const response = await axios.delete(`${COURSES_API}/${id}`, {
+        withCredentials: true
+    });
     return response.data;
 };
 
 export const updateCourse = async (course: any) => {
-    const response = await axios.put(`${COURSES_API}/${course._id}`, course);
+    const response = await axios.put(`${COURSES_API}/${course._id}`, course, {
+        withCredentials: true
+    });
     return response.data;
 };
