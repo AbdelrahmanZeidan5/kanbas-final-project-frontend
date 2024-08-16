@@ -23,8 +23,10 @@ const QuizDetails = () => {
 
     return (
         <div>
-            <button type="button" className='btn btn-outline-secondary me-2 disabled' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/preview`)}>Preview</button>
-            <button type="button" className='btn btn-outline-secondary' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/edit`)}>Edit</button>
+            
+            <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/preview`)}>Preview</button>
+            <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/edit`)}>Edit</button>
+            <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/attempts`)}>View Attempts</button>
             <hr />
             <h2>Quiz Details: {quiz.title}</h2>
             <p><strong>Description:</strong> {quiz.description}</p>

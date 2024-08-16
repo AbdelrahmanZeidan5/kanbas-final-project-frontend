@@ -93,3 +93,36 @@ export const deleteQuestion = async (questionId: string) => {
         throw error;
     }
 };
+
+// Create a Quiz Attempt
+export const createQuizAttempt = async (quizId: string, quizAttemptData: any) => {
+    try {
+        const response = await axios.post(`${QUIZZES_API}/${quizId}/attempts`, quizAttemptData);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to create quiz:", error);
+        throw error;
+    }
+};
+
+//Get Quiz Attempts
+export const getQuizAttempts = async (quizId: string) => {
+    try {
+        const response = await axios.get(`${QUIZZES_API}/${quizId}/attempts`);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to get quiz attempts:", error);
+        throw error;
+    }
+};
+
+//Get Quiz Attempts
+export const getQuizAttemptByID = async (quizId: string, qaId: string) => {
+    try {
+        const response = await axios.get(`${QUIZZES_API}/${quizId}/attempts/${qaId}`);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to get quiz attempt:", error);
+        throw error;
+    }
+};
