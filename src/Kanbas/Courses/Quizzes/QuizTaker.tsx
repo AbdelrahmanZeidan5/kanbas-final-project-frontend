@@ -1,13 +1,17 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { fetchQuizById, fetchQuestionsByQuizId, createQuizAttempt } from './client';
 import * as client from "./client";
+import { useNavigate } from "react-router-dom";
 
 const QuizTaker = () => {
     const { cid, quizId } = useParams(); 
     const [questions, setQuestions] = useState<any[]>([]);
     const [quiz, setQuiz] = useState<any>(null);
     const [answers, setAnswers] = useState<any>({});
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -34,15 +38,19 @@ const QuizTaker = () => {
 
 
     const submitQuiz = async () => {
-        const quizAttempt = {quizId: quizId, attempteeUsername: "iron_man", answers: answers, date: Date.now()}; //TODO CHANGE THIS TO BE CORRECT LOGIC
+        const quizAttempt = {quizId: quizId, attempteeUsername: currentUser.username, answers: answers, date: Date.now()};
         await client.createQuizAttempt(quizId as string, quizAttempt);
+        navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}`);
         alert("Submitted quiz");
     };
 
     function questionDisplay (question: any){
-        return (<div id={question._id}>
-        <div id="question-title">{question.title}</div>
-        <div id="question-text">{question.questionText}</div>
+        return (<div id={question._id} className="border-thin border-solid margin-all-around">
+        <div id="question-title" className="underline-content pad-left-small">
+            <span>{question.title}</span> <span className={`float-end pad-right-small`}>
+            {(`${question.points} points`)}
+            </span></div>
+        <div id="question-text" className="pad-left-small">{question.questionText}</div>
         {switchDisplay(question)}
         </div>);
     }
@@ -51,7 +59,7 @@ const QuizTaker = () => {
         switch (question.type) {
             case "MULTIPLE_CHOICE": //maybe combine first two cases, both record id of selected answer
                 return (
-                    question.choices.map((choice: any) => <div>
+                    question.choices.map((choice: any) => <div className="pad-left-small">
                         <input id={choice._id}
                             type="radio"
                             name={"mc_choice".concat(question._id)}
@@ -64,7 +72,7 @@ const QuizTaker = () => {
                   );
             case "TRUE_FALSE":
                 return (
-                    question.choices.map((choice: any) => <div>
+                    question.choices.map((choice: any) => <div className="pad-left-small">
                         <input id={choice._id}
                             type="radio"
                             name={"tf_choice".concat(question._id)}
@@ -76,7 +84,7 @@ const QuizTaker = () => {
                     </div>) 
                   );
             case "FILL_IN_BLANK": //store response in string form
-                return (<div>
+                return (<div className="pad-left-small pad-right-small">
                     <input
                         type="text"
                         className="form-control"
@@ -91,13 +99,27 @@ const QuizTaker = () => {
     }
 
     if (!quiz) return <div>Loading...</div>;
+    if (quiz.shuffleAnswers) {
+        questions.map((question) => {
+            //found a neat js array shuffle algorithm here
+            //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
+            question.choices = question.choices.map((choice: any) => ({value: choice, sort: Math.random() }))
+            .sort((a: any, b: any) => a.sort - b.sort)
+            .map((object: any) => object.value)
+
+        });
+    }
 
     return(<div className="quiz-taker p-4">
         
-        QUIZ TAKER
+        <h2>QUIZ TAKER</h2>
+        <hr/>
+        <h5>{quiz.title}</h5>
+        <hr/>
 
         <div id="questions">
+            
             {questions.map((question) => <div>                
                 
                 {questionDisplay(question)} <br/>
@@ -107,7 +129,8 @@ const QuizTaker = () => {
         </div>
 
         <div >
-        <button className="btn btn-danger" onClick={submitQuiz}>Submit</button>
+        <button className="btn btn-danger me-2" onClick={submitQuiz}>Submit</button>
+        {currentUser.role !== "STUDENT" && <button className="btn btn-danger me-2" onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/edit`)}>Edit Quiz</button>}
 
         </div>    
     

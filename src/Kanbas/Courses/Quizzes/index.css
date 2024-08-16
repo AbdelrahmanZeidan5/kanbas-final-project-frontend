@@ -1,0 +1,48 @@
+.correct-answer-color {
+    color: green;
+}
+
+.incorrect-answer-color {
+    color: red;
+}
+
+.border-thin {
+    border-width: 4px; }
+.border-very-thin {
+    border-width: 2px; }
+.border-solid {
+    border-style: solid; }
+
+.margin-all-around {
+    margin: 10px;
+}
+
+.no-margin-or-padding {
+    margin: 0;
+    padding: 0;
+}
+
+.pad-left-small {
+    padding-left: 5px;
+}
+
+.pad-right-small {
+    padding-right: 5px;
+}
+
+.underline-content {
+    border-bottom: 3px solid black;
+}
+
+.qa-table {
+    padding: 8px;
+    text-align: left;
+}
+
+.qa-table-border-right {
+    border-right: 1px solid black;
+  }
+
+  .qa-table-border-bottom {
+    border-bottom: 1px solid black;
+  }

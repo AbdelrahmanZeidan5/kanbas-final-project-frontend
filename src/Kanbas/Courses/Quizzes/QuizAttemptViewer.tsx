@@ -1,6 +1,8 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { fetchQuizById, getQuizAttemptByID, fetchQuestionsByQuizId } from "./client";
+import "./index.css";
+import { BiLeftArrow } from "react-icons/bi";
 
 const QuizAttemptViewer = () => {
 
@@ -41,6 +43,16 @@ const QuizAttemptViewer = () => {
         loadAttempt();
     }, [quizId]);
 
+    function gradeQuiz() {
+        let totalPoints = 0;
+        let earnedPoints = 0;
+        for (const question of questions) {
+            totalPoints += question.points;
+            earnedPoints += gradeQuestion(question, attempt.answers[question._id]);
+        }
+        return String(earnedPoints).concat("/", String(totalPoints), " points");
+    }
+
     function gradeQuestion(question: any, answer: any){
         let correct = false;
         switch (question.type) {
@@ -75,33 +87,54 @@ const QuizAttemptViewer = () => {
 
     function questionDisplay (question: any, showCorrectAnswers: Boolean){
         const attemptAnswer = attempt.answers[question._id];
-        return (<div id={question._id}>
-        <br/>
-        <div id="question-title">{question.title}</div>
-        <div id="question-text">{question.questionText}</div>
-        {switchDisplay(question)}
-        {String(gradeQuestion(question, attemptAnswer)).concat(`/${question.points} points`)}
+        const pointsAwarded = gradeQuestion(question, attemptAnswer);
+        return (<div className="border-thin border-solid margin-all-around" id={question._id}>
+        <div id="question-title" className="underline-content">
+            <span className={`pad-left-small ${pointsAwarded > 0 ? "correct-answer-color" : "incorrect-answer-color"}`}>{question.title}</span>
+            <span className={`${pointsAwarded > 0 ? "correct-answer-color" : "incorrect-answer-color"} float-end pad-right-small`}>
+            {String(pointsAwarded).concat(`/${question.points} points`)}
+            </span>
+            
+        </div>
+        <div id="question-text">
+            <span className="pad-left-small">{question.questionText} </span>
+        </div>
+        {switchDisplay(question, attemptAnswer, showCorrectAnswers)}
+        
         
         </div>);
     }
 
-    function switchDisplay(question: any) {
-        switch (question.type) {
-            case "MULTIPLE_CHOICE": //maybe combine first two cases, both record id of selected answer
-                return (
-                    question.choices.map((choice: any) => <div>
+    function switchDisplay(question: any, answer: any, showCorrectAnswers: Boolean) {
 
+        function showYourAnswer(choice: any, answer: any) {
+            if (choice._id === answer) {
+                return (<span> <BiLeftArrow/> SELECTED </span>);
+            }
+            return;
+        }
+
+        switch (question.type) {
+            case "MULTIPLE_CHOICE":
+                return (
+                    question.choices.map((choice: any) => <div className="pad-left-small">
+                        {choice.text}{showYourAnswer(choice, answer)} {showCorrectAnswers && choice.isCorrect && <span className="correct-answer-color"> <BiLeftArrow/> CORRECT</span>}
+                        
                     </div>) 
                   );
             case "TRUE_FALSE":
                 return (
-                    question.choices.map((choice: any) => <div>
-
+                    question.choices.map((choice: any) => <div className="pad-left-small">
+                        {choice.text}{showYourAnswer(choice, answer)} {showCorrectAnswers && choice.isCorrect && <span className="correct-answer-color"> <BiLeftArrow/> CORRECT</span>}
                     </div>) 
                   );
-            case "FILL_IN_BLANK": //store response in string form
+            case "FILL_IN_BLANK":
                 return (<div>
-
+                    {!showCorrectAnswers && <span className="pad-left-small">SUBMITTED: {answer}</span>}
+                    {showCorrectAnswers && <table>
+                        <tr><td className="qa-table qa-table-border-right qa-table-border-bottom">SUBMITTED ANSWER</td><td className="qa-table qa-table-border-bottom">ACCEPTED ANSWERS</td></tr>
+                        <tr><td className="qa-table qa-table-border-right">{String(answer)}</td><td className="qa-table">{question.choices.map((choice: any) => <span>| &nbsp; {choice.text} &nbsp; </span>)}|</td></tr>
+                    </table>}
                 </div>);
             default:
               return <div>BROKEN QUESTION TYPE</div>
@@ -112,8 +145,12 @@ const QuizAttemptViewer = () => {
     if (!attempt) return <div>Loading...</div>;
 
     return (<div>
-        QUIZ ATTEMPT VIEWER <br/>
-        {"Attempted by ".concat(attempt.attempteeUsername, " on ", attempt.date.toLocaleString('en-US', { month: 'long', day: 'numeric' }))}
+        <h2>QUIZ ATTEMPT VIEWER </h2>
+        <hr/>
+        <h5>{quiz.title}</h5>
+        <hr/>
+        <span>{"Attempted by ".concat(attempt.attempteeUsername, " on ", attempt.date.toLocaleString('en-US', { month: 'long', day: 'numeric' }))}</span>
+        <span className="float-end pad-right-small">{gradeQuiz()}</span>
         
         {questions.map((question: any) => <div>
 
