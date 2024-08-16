@@ -1,192 +1,172 @@
-[
-  {
-      "_id": "121",
-      "username": "iron_man",
-      "password": "stark123",
-      "firstName": "Tony",
-      "lastName": "Stark",
-      "email": "tony@stark.com",
-      "dob": "1970-05-29",
-      "role": "STUDENT"
+[{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95dd"
   },
-  {
-      "_id": "122",
-      "username": "dark_knight",
-      "password": "wayne123",
-      "firstName": "Bruce",
-      "lastName": "Wayne",
-      "email": "bruce@wayne.com",
-      "dob": "1972-02-19",
-      "role": "STUDENT"
+  "username": "iron_man",
+  "password": "stark123",
+  "firstName": "Tony",
+  "lastName": "Stark",
+  "email": "tony.stark@gmail.com",
+  "dob": {
+    "$date": "1970-05-29T00:00:00.000Z"
   },
-  {
-      "_id": "123",
-      "username": "capt_america",
-      "password": "rogers123",
-      "firstName": "Steve",
-      "lastName": "Rogers",
-      "email": "steve@avengers.com",
-      "dob": "1918-07-04",
-      "role": "STUDENT"
+  "role": "STUDENT",
+  "loginId": "001234561S",
+  "section": "S101",
+  "lastActivity": {
+    "$date": "2020-10-01T00:00:00.000Z"
   },
-  {
-      "_id": "124",
-      "username": "black_widow",
-      "password": "romanoff123",
-      "firstName": "Natasha",
-      "lastName": "Romanoff",
-      "email": "natasha@avengers.com",
-      "dob": "1984-11-22",
-      "role": "STUDENT"
+  "totalActivity": "10:21:32"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95de"
   },
-  {
-      "_id": "125",
-      "username": "thor_odinson",
-      "password": "mjolnir123",
-      "firstName": "Thor",
-      "lastName": "Odinson",
-      "email": "thor@asgard.com",
-      "dob": "982-05-25",
-      "role": "STUDENT"
+  "username": "dark_knight",
+  "password": "wayne123",
+  "firstName": "Bruce",
+  "lastName": "Wayne",
+  "email": "bruce@wayne.com",
+  "dob": "1972-02-19",
+  "role": "STUDENT",
+  "loginId": "001234562S",
+  "section": "S101",
+  "lastActivity": "2020-11-02",
+  "totalActivity": "15:32:43"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95df"
   },
-  {
-      "_id": "126",
-      "username": "hulk_smash",
-      "password": "banner123",
-      "firstName": "Bruce",
-      "lastName": "Banner",
-      "email": "bruce@avengers.com",
-      "dob": "1969-12-18",
-      "role": "STUDENT"
+  "username": "capt_america",
+  "password": "rogers123",
+  "firstName": "Steve",
+  "lastName": "Rogers",
+  "email": "steve@avengers.com",
+  "dob": "1918-07-04",
+  "role": "STUDENT",
+  "loginId": "001234563S",
+  "section": "S101",
+  "lastActivity": "2020-10-02",
+  "totalActivity": "23:32:43"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95e0"
   },
-  {
-      "_id": "127",
-      "username": "ring_bearer",
-      "password": "shire123",
-      "firstName": "Frodo",
-      "lastName": "Baggins",
-      "email": "frodo@shire.com",
-      "dob": "1368-09-22",
-      "role": "FACULTY"
+  "username": "black_widow",
+  "password": "romanoff123",
+  "firstName": "Natasha",
+  "lastName": "Romanoff",
+  "email": "natasha@avengers.com",
+  "dob": "1984-11-22",
+  "role": "TA",
+  "loginId": "001234564S",
+  "section": "S101",
+  "lastActivity": "2020-11-05",
+  "totalActivity": "13:23:34"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95e1"
   },
-  {
-      "_id": "128",
-      "username": "strider",
-      "password": "aragorn123",
-      "firstName": "Aragorn",
-      "lastName": "Elessar",
-      "email": "aragorn@gondor.com",
-      "dob": "2931-03-01",
-      "role": "FACULTY"
+  "username": "thor_odinson",
+  "password": "mjolnir123",
+  "firstName": "Thor",
+  "lastName": "Odinson",
+  "email": "thor@asgard.com",
+  "dob": "982-05-25",
+  "role": "STUDENT",
+  "loginId": "001234565S",
+  "section": "S101",
+  "lastActivity": "2020-12-01",
+  "totalActivity": "11:22:33"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95e2"
   },
-  {
-      "_id": "129",
-      "username": "elf_archer",
-      "password": "legolas123",
-      "firstName": "Legolas",
-      "lastName": "Greenleaf",
-      "email": "legolas@mirkwood.com",
-      "dob": "2879-07-15",
-      "role": "FACULTY"
+  "username": "hulk_smash",
+  "password": "banner123",
+  "firstName": "Bruce",
+  "lastName": "Banner",
+  "email": "bruce@avengers.com",
+  "dob": "1969-12-18",
+  "role": "STUDENT",
+  "loginId": "001234566S",
+  "section": "S101",
+  "lastActivity": "2020-12-01",
+  "totalActivity": "22:33:44"
+},
+{
+  "_id": {
+    "$oid": "66b3bdf96380173ed31a95e5"
   },
-  {
-      "_id": "130",
-      "username": "wizard_gandalf",
-      "password": "gandalf123",
-      "firstName": "Gandalf",
-      "lastName": "the Grey",
-      "email": "gandalf@middleearth.com",
-      "dob": "Unknown",
-      "role": "FACULTY"
+  "username": "elf_archer",
+  "password": "legolas123",
+  "firstName": "Legolas",
+  "lastName": "Greenleaf",
+  "email": "legolas@mirkwood.com",
+  "dob": "2879-07-15",
+  "role": "FACULTY",
+  "loginId": "001234569S",
+  "section": "S101",
+  "lastActivity": "2020-11-11",
+  "totalActivity": "21:32:43"
+},
+{
+  "_id": {
+    "$oid": "66b424cf8a45fab2ed447bde"
   },
-  {
-      "_id": "131",
-      "username": "speedster",
-      "password": "flash123",
-      "firstName": "Barry",
-      "lastName": "Allen",
-      "email": "barry@speedforce.com",
-      "dob": "1989-03-14",
-      "role": "STUDENT"
+  "username": "newuser1723081935126",
+  "password": "password123",
+  "firstName": "James",
+  "lastName": "Bond",
+  "role": "TA",
+  "section": "S101",
+  "__v": 0,
+  "email": "JamesBond@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "66b424d28a45fab2ed447be0"
   },
-  {
-      "_id": "132",
-      "username": "wonder_woman",
-      "password": "diana123",
-      "firstName": "Diana",
-      "lastName": "Prince",
-      "email": "diana@amazon.com",
-      "dob": "Unknown",
-      "role": "STUDENT"
+  "username": "newuser1723081938331",
+  "password": "password123",
+  "firstName": "New",
+  "lastName": "User9",
+  "role": "STUDENT",
+  "section": "S101",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b42ad78a45fab2ed447c20"
   },
-  {
-      "_id": "133",
-      "username": "aquaman",
-      "password": "arthur123",
-      "firstName": "Arthur",
-      "lastName": "Curry",
-      "email": "arthur@atlantis.com",
-      "dob": "1986-01-29",
-      "role": "STUDENT"
+  "username": "newuser1723083479050",
+  "password": "password123",
+  "firstName": "User",
+  "lastName": "10",
+  "role": "STUDENT",
+  "section": "S101",
+  "__v": 0,
+  "email": "user10@test.com"
+},
+{
+  "_id": {
+    "$oid": "66b6457f87d54afe7e6e613c"
   },
-  {
-      "_id": "134",
-      "username": "spiderman",
-      "password": "peter123",
-      "firstName": "Peter",
-      "lastName": "Parker",
-      "email": "peter@dailybugle.com",
-      "dob": "2001-08-10",
-      "role": "STUDENT"
+  "username": "Abdelrahman",
+  "password": "123",
+  "role": "USER",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b655e3ff6bc1e06e3c1ba9"
   },
-  {
-      "_id": "135",
-      "username": "superman",
-      "password": "clark123",
-      "firstName": "Clark",
-      "lastName": "Kent",
-      "email": "clark@dailyplanet.com",
-      "dob": "1978-06-18",
-      "role": "STUDENT"
-  },
-  {
-      "_id": "136",
-      "username": "green_lantern",
-      "password": "hal123",
-      "firstName": "Hal",
-      "lastName": "Jordan",
-      "email": "hal@lanterncorps.com",
-      "dob": "1980-07-20",
-      "role": "STUDENT"
-  },
-  {
-      "_id": "137",
-      "username": "cyborg",
-      "password": "vic123",
-      "firstName": "Victor",
-      "lastName": "Stone",
-      "email": "vic@titans.com",
-      "dob": "1990-11-29",
-      "role": "STUDENT"
-  },
-  {
-      "_id": "138",
-      "username": "black_panther",
-      "password": "tchalla123",
-      "firstName": "T'Challa",
-      "lastName": "Udaku",
-      "email": "tchalla@wakanda.com",
-      "dob": "1980-10-15",
-      "role": "STUDENT"
-  },
-  {
-      "_id": "139",
-      "username": "scarlet_witch",
-      "password": "wanda123",
-      "firstName": "Wanda",
-      "lastName": "Maximoff",
-      "email": "wanda@avengers.com",
-      "dob": "1989-02-10",
-      "role": "STUDENT"
-  }
-]
+  "username": "Abdelrahman2",
+  "password": "123",
+  "role": "USER",
+  "__v": 0
+}]
