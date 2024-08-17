@@ -11,16 +11,34 @@ import Quizzes from "./Quizzes";
 import QuizDetails from "./Quizzes/QuizDetails";
 import QuizEditor from "./Quizzes/QuizEditor";
 import QuizPreview from "./Quizzes/QuizPreview";
+import { useEffect, useState } from "react";
+import * as quizClient from "./Quizzes/client";
 
 export default function Courses({ courses }: { courses: any[]; }) {
-  const { cid } = useParams();
+  const { cid, qid } = useParams();
   const course = courses.find((course) => course._id === cid);
+
+  const [quizzes, setQuizzes] = useState<any[]>([]);
+  const fetchQuizzes = async () => {
+    const quizzes = await quizClient.fetchQuizzesForCourse(cid as string);
+    setQuizzes(quizzes);
+  };
+  useEffect(() => {
+    fetchQuizzes();
+  }, []);
+
   const { pathname } = useLocation();
+
+  const ind = pathname.split("/").indexOf("edit") - 1;
+  const locQuiz = quizzes.find((quiz) => quiz._id === pathname.split("/")[ind]);
+  const quizName = locQuiz ? locQuiz.title : "Unnamed Quiz";
+
+ 
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
-        {course && course.name} &gt; {pathname.split("/")[4]}
+        {course && course.name} &gt; {pathname.split("/")[4]} {pathname.includes("edit") && `> ${quizName}`}
       </h2>
       
       <hr />

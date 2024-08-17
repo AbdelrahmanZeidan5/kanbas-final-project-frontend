@@ -37,7 +37,7 @@ const QuizDetails = () => {
             <div className="m-5">
                 <div className="row m-1">
                     <div className="d-flex col-3 justify-content-end fw-bold">Quiz Type</div>
-                    <div className="d-flex col-7">{quiz.type}</div>
+                    <div className="d-flex col-7">{quiz.type.split("_").join(" ")}</div>
                 </div>
                 <div className="row m-1">
                     <div className="d-flex col-3 justify-content-end fw-bold">Points</div>
