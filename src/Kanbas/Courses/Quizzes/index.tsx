@@ -1,42 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import { fetchQuizzesForCourse } from './client';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { fetchQuizzesForCourse } from "./client";
+import { Link, useParams } from "react-router-dom";
+import {
+  QuizzesControlButtons,
+  QuizControlButtons,
+} from "./QuizzesControlButtons";
 
 const Quizzes = () => {
-    const { cid } = useParams();
-    const [quizzes, setQuizzes] = useState<any[]>([]);
+  const { cid } = useParams();
+  const [quizzes, setQuizzes] = useState<any[]>([]);
 
+  useEffect(() => {
+    const loadQuizzes = async () => {
+      try {
+        const quizzesData = await fetchQuizzesForCourse(cid as string);
+        console.log("Fetched Quizzes Data:", quizzesData); // Log the fetched data
+        setQuizzes(quizzesData);
+      } catch (error) {
+        console.error("Failed to load quizzes:", error);
+      }
+    };
+    loadQuizzes();
+  }, [cid]);
 
-    useEffect(() => {
-        const loadQuizzes = async () => {
-            try {
-                const quizzesData = await fetchQuizzesForCourse(cid as string);
-                console.log("Fetched Quizzes Data:", quizzesData); // Log the fetched data
-                setQuizzes(quizzesData);
-            } catch (error) {
-                console.error("Failed to load quizzes:", error);
-            }
-        };
-        loadQuizzes();
-    }, [cid]);
-    
+  <QuizControlButtons quiz={quiz} />;
 
-    return (
-        <div>
-            <h2>Quizzes for the Course:</h2>
-            <ul>
-                {quizzes.map((quiz) => (
-                    <li key={quiz._id}>
-                        <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`} >
-                            {quiz.title}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <Container>
+      <Row className="align-items-center mb-3">
+        <Col>
+          <h2>Quizzes for the Course:</h2>
+        </Col>
+        <Col xs="auto">
+          <QuizzesControlButtons />
+        </Col>
+      </Row>
+      <Card>
+        <ListGroup variant="flush">
+          {quizzes.map((quiz) => (
+            <ListGroup.Item
+              key={quiz._id}
+              className="d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`}>
+                  <strong>{quiz.title}</strong>
+                </Link>
+                <div className="text-muted">
+                  {quiz.published ? "Published" : "Unpublished"} |
+                  {quiz.dueDate
+                    ? ` Due: ${new Date(quiz.dueDate).toLocaleDateString()}`
+                    : " No due date"}
+                </div>
+              </div>
+              <div>
+                <Button variant="outline-primary" size="sm">
+                  Details
+                </Button>
+              </div>
+              <QuizControlButtons quiz={quiz} />
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      </Card>
+    </Container>
+  );
 };
-
 export default Quizzes;
-
-
