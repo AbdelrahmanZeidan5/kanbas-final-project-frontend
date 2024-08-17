@@ -33,11 +33,13 @@ const QuizAttemptsList = () => {
                 let fetchedAttempts = await getQuizAttempts(quizId as string);
 
                 if (currentUser.role === "STUDENT") {
-                    fetchedAttempts.filter(isAttemptByCurrentUser).sort(sortAttempts);
-                    fetchedAttempts = [fetchedAttempts[fetchedAttempts.length - 1]]; // take last (most recent attempt)
+                    fetchedAttempts = fetchedAttempts.filter(isAttemptByCurrentUser).sort(sortAttempts);
+                    if (fetchedAttempts.length > 0) {
+                        fetchedAttempts = [fetchedAttempts[fetchedAttempts.length - 1]]; // take last (most recent attempt)
+                    }
                 }
 
-                setAttempts(fetchedAttempts);
+                setAttempts(fetchedAttempts.filter(Boolean)); 
             } catch (error) {
                 console.error("Failed to load attempts:", error);
             }
@@ -48,7 +50,7 @@ const QuizAttemptsList = () => {
     }, [quizId]);
 
     if (!quiz) return <div>Loading...</div>;
-
+    
     return (<div>
         
         <h2>QUIZ ATTEMPTS LIST</h2>
@@ -57,12 +59,27 @@ const QuizAttemptsList = () => {
         <h5>{String(quiz.title)}</h5>
         <hr/>
 
-        {attempts.map((attempt) => <div id="attempts-list">
-            <br/>
-            <a className="quiz-attempt-link text-decoration-none text-dark" href={`#/Kanbas/Courses/${cid}/Quizzes/${quizId}/attempts/${attempt._id}`}>
-                <strong>{"Attempted by ".concat(attempt.attempteeUsername, " on ", attempt.date.toLocaleString('en-US', { month: 'long', day: 'numeric' }))}</strong>
-            </a>
-        </div>)}
+        {attempts.map((attempt) => (
+            attempt && attempt._id && (
+                <div key={attempt._id} id="attempts-list">
+                    <br/>
+                    <a 
+                        className="quiz-attempt-link text-decoration-none text-dark" 
+                        href={`#/Kanbas/Courses/${cid}/Quizzes/${quizId}/attempts/${attempt._id}`}>
+                        <strong>
+                            {"Attempted by ".concat(
+                                attempt.attempteeUsername, 
+                                " on ", 
+                                new Date(attempt.date).toLocaleString('en-US', { 
+                                    month: 'long', 
+                                    day: 'numeric' 
+                                })
+                            )}
+                        </strong>
+                    </a>
+                </div>
+            )
+        ))}
     </div>);
 
 };

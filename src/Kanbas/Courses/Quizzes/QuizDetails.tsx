@@ -29,7 +29,7 @@ const QuizDetails = () => {
                 let fetchedAttempts = await getQuizAttempts(quizId as string);
 
                 if (currentUser.role === "STUDENT") {
-                    fetchedAttempts.filter(isAttemptByCurrentUser);
+                    fetchedAttempts = fetchedAttempts.filter(isAttemptByCurrentUser);
                 }
                 setAttempts(fetchedAttempts);
             } catch (error) {
@@ -43,7 +43,7 @@ const QuizDetails = () => {
     if (!quiz) return <div>Loading...</div>;
 
     let canTake = true;
-    if (currentUser.role === "STUDENT" && (!quiz.multipleAttempts || attempts.length >= quiz.maxAttempts)) { //not allowed to take it again
+    if (currentUser.role === "STUDENT" && ((!quiz.multipleAttempts && attempts.length >= 1)|| attempts.length >= quiz.maxAttempts)) { //not allowed to take it again
         canTake = false;
     }
 
@@ -51,7 +51,7 @@ const QuizDetails = () => {
         <div>
             
             <button type="button" className={`btn btn-outline-secondary me-2 ${canTake? "":"disabled"}`} onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/preview`)}>{currentUser.role === "STUDENT" ? `${canTake? "Take":"Cannot Take - Attempt Limit Reached"}` : "Preview"}</button>
-            <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/edit`)}>Edit</button>
+            {currentUser.role !== "STUDENT" && <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/edit`)}>Edit</button>}
             <button type="button" className='btn btn-outline-secondary me-2' onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizId}/attempts`)}>View Attempts</button>
             <hr />
             <h2>Quiz Details: {quiz.title}</h2>
