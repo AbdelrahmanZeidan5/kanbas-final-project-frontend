@@ -20,7 +20,6 @@ export default function Kanbas() {
     fetchCourses();
   }, []);
 
-
   const generateRandomCourseNumber = () => {
     const randomDigits = Math.floor(10000000 + Math.random() * 90000000);
     return `RS${randomDigits}`;

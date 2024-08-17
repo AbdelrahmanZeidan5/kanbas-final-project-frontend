@@ -1,0 +1,44 @@
+[
+    {
+        "quiz": "66bbdfc4efb4295742a53a80",
+        "title": "What is React?",
+        "type": "MULTIPLE_CHOICE",
+        "points": 10,
+        "questionText": "React is a ___",
+        "choices": [
+            { "text": "Library for building user interfaces", "isCorrect": true },
+            { "text": "Framework for backend development", "isCorrect": false },
+            { "text": "Database management tool", "isCorrect": false },
+            { "text": "Operating system", "isCorrect": false }
+        ]
+    },
+    {
+        "quiz": "66bbdfc4efb4295742a53a80",
+        "title": "JSX stands for?",
+        "type": "MULTIPLE_CHOICE",
+        "points": 10,
+        "questionText": "JSX stands for ___",
+        "choices": [
+            { "text": "JavaScript XML", "isCorrect": true },
+            { "text": "JavaScript and XAML", "isCorrect": false },
+            { "text": "Java Syntax Extension", "isCorrect": false },
+            { "text": "JavaScript Express", "isCorrect": false }
+        ]
+    },
+    {
+        "quiz": "66bbdfc4efb4295742a53a81",
+        "title": "What does <p> tag represent?",
+        "type": "TRUE_FALSE",
+        "points": 5,
+        "questionText": "<p> tag represents a paragraph.",
+        "correctAnswerBoolean": true
+    },
+    {
+        "quiz": "66bbdfc4efb4295742a53a82",
+        "title": "How to define a grid container?",
+        "type": "FILL_IN_BLANK",
+        "points": 15,
+        "questionText": "To define a grid container, you use the ___ property.",
+        "correctAnswer": "display: grid"
+    }
+]

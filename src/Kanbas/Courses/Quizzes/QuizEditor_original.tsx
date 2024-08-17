@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import QuestionTypeEditor from './QuestionTypeEditor';
 
 const QuizEditor = () => {
+    const [quiz, setQuiz] = useState<any>();
     const [activeTab, setActiveTab] = useState<'details' | 'questions'>('details');
     const [questions, setQuestions] = useState<any[]>([]);
     const [totalPoints, setTotalPoints] = useState(0);
@@ -66,7 +67,75 @@ const QuizEditor = () => {
             <div>
                 {activeTab === 'details' && (
                     <div>
-                        <p>Edit the quiz's details here...</p>
+                        <input type="text" placeholder="Unamed Quiz" className='form-control'
+                            onChange={(e) => setQuiz({ ...quiz, title: e.target.value })} />
+                        
+                        <div id='wd-quiz-instructions'>
+                            Quiz Instructions
+                            <div id='wd-quiz-edit-tools'>
+                                <span></span>
+
+                            </div>
+                        </div>
+
+                        <div id='quiz-editors'>
+                            <div className='row'>
+                                <div className='col-2'>
+                                    Quiz Type
+                                </div>
+                                <div className='col-8'>
+                                    <select className='form-select'>
+                                        <option value="Graded Quiz" selected>Graded Quiz</option>
+                                        <option value="Practice Quiz">Practice Quiz</option>
+                                        <option value="Graded Survey">Graded Survey</option>
+                                        <option value="Ungraded Survey">Ungraded Survey</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-2'>
+                                    Assignment Group
+                                </div>
+                                <div className='col-8'>
+                                    <select className='form-select'>
+                                        <option value="Quizzes" selected>Quizzes</option>
+                                        <option value="Exams">Exams</option>
+                                        <option value="Assignments">Assignments</option>
+                                        <option value="Project">Project</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-2'>
+                                </div>
+                                <div className='col-8'>
+                                    <span className='fw-bold'>Options</span>
+                                    <input type="checkbox" id='shuffle' />
+                                    <label htmlFor="shuffle">Shuffle Answers</label>
+
+                                    <input type="checkbox" id='time-limit' />
+                                    <label htmlFor="time-limit">Time Limit</label>
+
+                                    <input type='text' className='w-10 form-control' id='minutes'/>
+                                    <label htmlFor="minutes">Minutes</label>
+
+                                    <div className='form-control'>
+                                        <input type="checkbox" id='attempts' />
+                                        <label htmlFor="attempts">Allow Multiple Attempts</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='row'>
+                                <div className='col-2'>
+                                    Assign
+                                </div>
+                                <div className='col-8 form-control'>
+                                    <span className='fw-bold'>Assign to</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )}
                 {activeTab === 'questions' && (
