@@ -43,7 +43,7 @@ export default function Profile() {
                             onChange={(e) => setProfile({ ...profile, dob: e.target.value })} type="date"/>
                     <input className="wd-email form-control mb-2" value={profile.email}
                             onChange={(e) => setProfile({ ...profile, email: e.target.value })}/>
-                    <select className="wd-role form-control mb-2" onChange={(e) => setProfile({ ...profile, role: e.target.value })}>
+                    <select className="wd-role form-control mb-2" value={profile.role} onChange={(e) => setProfile({ ...profile, role: e.target.value })}>
                         <option value="USER">User</option>
                         <option value="ADMIN">Admin</option>
                         <option value="FACULTY">Faculty</option>
