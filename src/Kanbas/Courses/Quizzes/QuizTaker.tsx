@@ -5,13 +5,14 @@ import { fetchQuizById, fetchQuestionsByQuizId, createQuizAttempt } from './clie
 import * as client from "./client";
 import { useNavigate } from "react-router-dom";
 
-const QuizTaker = () => {
+const QuizTaker = () => { //todo change to create QA on load, and then update when things change, some kind of default for answers?
     const { cid, quizId } = useParams(); 
     const [questions, setQuestions] = useState<any[]>([]);
     const [quiz, setQuiz] = useState<any>(null);
     const [answers, setAnswers] = useState<any>({});
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const navigate = useNavigate();
+    const [quizExpireTime, setQuizExpireTime] = useState<any>(null);
 
 
     useEffect(() => {
@@ -34,8 +35,14 @@ const QuizTaker = () => {
 
         loadQuiz();
         loadQuestions();
-    }, [quizId]);
 
+        if (quizExpireTime == null && quiz) {
+            const timeLimitInMinutes = quiz.timeLimit;
+            const millisecondsPerMinute = 60000;
+            setQuizExpireTime(new Date(new Date().getTime() + (timeLimitInMinutes * millisecondsPerMinute)));
+        }
+
+    }, [quizId]);
 
     const submitQuiz = async () => {
         const quizAttempt = {quizId: quizId, attempteeUsername: currentUser.username, answers: answers, date: Date.now()};
@@ -99,7 +106,7 @@ const QuizTaker = () => {
     }
 
     if (!quiz) return <div>Loading...</div>;
-    if (quiz.shuffleAnswers) {
+    /*if (quiz.shuffleAnswers) { //todo broken, move this to happen before this page loads
         questions.map((question) => {
             //found a neat js array shuffle algorithm here
             //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -109,7 +116,7 @@ const QuizTaker = () => {
             .map((object: any) => object.value)
 
         });
-    }
+    }*/
 
     return(<div className="quiz-taker p-4">
         
