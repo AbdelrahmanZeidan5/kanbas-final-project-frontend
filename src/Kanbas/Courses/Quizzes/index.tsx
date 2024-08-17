@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Row, Col, Container, ListGroup, Card } from "reactstrap";
+import { Button } from "reactstrap";
+
 import { fetchQuizzesForCourse } from "./client";
 import { Link, useParams } from "react-router-dom";
-import {
-  QuizzesControlButtons,
-  QuizControlButtons,
-} from "./QuizzesControlButtons";
+import { QuizzesControlButtons } from "./QuizzesControlButtons";
+import { QuizDetails } from "./QuizDetails";
 
 const Quizzes = () => {
   const { cid } = useParams();
@@ -23,7 +24,7 @@ const Quizzes = () => {
     loadQuizzes();
   }, [cid]);
 
-  <QuizControlButtons quiz={quiz} />;
+  <QuizDetails />;
 
   return (
     <Container>
@@ -37,30 +38,37 @@ const Quizzes = () => {
       </Row>
       <Card>
         <ListGroup variant="flush">
-          {quizzes.map((quiz) => (
-            <ListGroup.Item
-              key={quiz._id}
-              className="d-flex justify-content-between align-items-center"
-            >
-              <div>
-                <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`}>
-                  <strong>{quiz.title}</strong>
-                </Link>
-                <div className="text-muted">
-                  {quiz.published ? "Published" : "Unpublished"} |
-                  {quiz.dueDate
-                    ? ` Due: ${new Date(quiz.dueDate).toLocaleDateString()}`
-                    : " No due date"}
+          {quizzes.map(
+            (quiz: {
+              _id: any;
+              title: any;
+              published: any;
+              dueDate: string | number | Date;
+            }) => (
+              <ListGroup.Item
+                key={quiz._id}
+                className="d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`}>
+                    <strong>{quiz.title}</strong>
+                  </Link>
+                  <div className="text-muted">
+                    {quiz.published ? "Published" : "Unpublished"} |
+                    {quiz.dueDate
+                      ? ` Due: ${new Date(quiz.dueDate).toLocaleDateString()}`
+                      : " No due date"}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <Button variant="outline-primary" size="sm">
-                  Details
-                </Button>
-              </div>
-              <QuizControlButtons quiz={quiz} />
-            </ListGroup.Item>
-          ))}
+                <div>
+                  <Button variant="outline-primary" size="sm">
+                    Details
+                  </Button>
+                </div>
+                <QuizDetails />
+              </ListGroup.Item>
+            )
+          )}
         </ListGroup>
       </Card>
     </Container>

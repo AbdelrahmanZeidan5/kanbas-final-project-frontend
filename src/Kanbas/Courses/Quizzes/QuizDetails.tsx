@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchQuizById } from "./client"; // Function to fetch quiz details
 import { Card, ListGroup, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const QuizDetails = () => {
   const { quizId, cid } = useParams<{ quizId: string; cid: string }>();
@@ -65,6 +66,9 @@ const QuizDetails = () => {
               <div>
                 <Button variant="outline-primary" size="sm">
                   Details
+                </Button>
+                <Button variant="outline-secondary" size="sm">
+                  Edit
                 </Button>
               </div>
             </ListGroup.Item>
