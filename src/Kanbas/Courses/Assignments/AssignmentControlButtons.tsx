@@ -14,12 +14,23 @@ export function AssignmentsControlButtons() {
   );
 }
 
-export function AssignmentControlButtons({ assignmentId, assignmentTitle, onDeleteClick }: 
-  { assignmentId: string; assignmentTitle: string; onDeleteClick: (assignmentId: string, assignmentTitle: string) => void; } 
-) {
+export function AssignmentControlButtons({
+  assignmentId,
+  assignmentTitle,
+  onDeleteClick,
+}: {
+  assignmentId: string;
+  assignmentTitle: string;
+  onDeleteClick: (assignmentId: string, assignmentTitle: string) => void;
+}) {
   return (
     <div className="float-end">
-      <FaTrash className="text-danger me-2 mb-1" onClick={() => onDeleteClick(assignmentId, assignmentTitle)} data-bs-toggle="modal" data-bs-target="#wd-delete-assignment-dialog" />
+      <FaTrash
+        className="text-danger me-2 mb-1"
+        onClick={() => onDeleteClick(assignmentId, assignmentTitle)}
+        data-bs-toggle="modal"
+        data-bs-target="#wd-delete-assignment-dialog"
+      />
       <GreenCheckmark />
       <IoEllipsisVertical className="fs-4" />
     </div>

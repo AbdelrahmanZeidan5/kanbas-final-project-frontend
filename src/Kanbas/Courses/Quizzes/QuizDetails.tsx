@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { fetchQuizById } from "./client"; // Function to fetch quiz details
 import { Card, ListGroup, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const QuizDetails = () => {
   const { quizId, cid } = useParams<{ quizId: string; cid: string }>();
   const [quiz, setQuiz] = useState<any>(null);
   const navigate = useNavigate();
-
+  const quizzes = quiz ? [quiz] : [];
   useEffect(() => {
     const loadQuiz = async () => {
       try {

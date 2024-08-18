@@ -1,17 +1,17 @@
 import React from "react";
 
-export default function DeleteAssignmentModal({
+export default function DeleteQuizModal({
   dialogTitle,
-  assignmentTitle,
+  quizTitle,
   confirmDelete,
 }: {
   dialogTitle: string;
-  assignmentTitle: string;
+  quizTitle: string;
   confirmDelete: () => void;
 }) {
   return (
     <div
-      id="wd-delete-assignment-dialog"
+      id="wd-delete-quiz-dialog"
       className="modal fade"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
@@ -29,7 +29,7 @@ export default function DeleteAssignmentModal({
             ></button>
           </div>
           <div className="modal-body">
-            Are you sure you want to delete the assignment "{assignmentTitle}"?
+            Are you sure you want to delete the quiz "{quizTitle}"?
           </div>
           <div className="modal-footer">
             <button
