@@ -3,6 +3,7 @@ import { IoEllipsisVertical } from "react-icons/io5";
 import { BsPlus } from "react-icons/bs";
 import GreenCheckmark from "../Modules/GreenCheckmark";
 import { FaTrash } from "react-icons/fa";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 export function QuizzesControlButtons() {
   return (
@@ -18,10 +19,12 @@ export function QuizControlButtons({
   quizId,
   quizTitle,
   onDeleteClick,
+  isPublished,
 }: {
   quizId: string;
   quizTitle: string;
   onDeleteClick: (quizId: string, quizTitle: string) => void;
+  isPublished: boolean;
 }) {
   return (
     <div className="float-end">
@@ -31,7 +34,7 @@ export function QuizControlButtons({
         data-bs-toggle="modal"
         data-bs-target="#wd-delete-quiz-dialog"
       />
-      <GreenCheckmark />
+      {isPublished ? <GreenCheckmark /> : <IoIosCheckmarkCircleOutline />}
       <IoEllipsisVertical className="fs-4" />
     </div>
   );

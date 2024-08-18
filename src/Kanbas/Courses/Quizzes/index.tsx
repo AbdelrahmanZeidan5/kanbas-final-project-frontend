@@ -13,6 +13,7 @@ import QuizDetails from "./QuizDetails";
 import { setQuizzes, deleteQuiz } from "./reducer";
 import QuizControls from "./QuizControls";
 import { IoRocketOutline } from "react-icons/io5";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import DeleteQuizModal from "./DeleteQuizModal";
 
 const Quizzes = () => {
@@ -130,7 +131,7 @@ const Quizzes = () => {
                     <strong>{quiz.title}</strong>
                   </a>
                   <div className="quiz-details">
-                    {quiz.published ? "Published" : "Unpublished"} |
+                    
                     <div>
                   {getAvailabilityStatus(quiz.availableDate, quiz.availableUntilDate)}
                 </div>
@@ -150,6 +151,7 @@ const Quizzes = () => {
                   quizId={quiz._id}
                   quizTitle={quiz.title}
                   onDeleteClick={handleDeleteClick}
+                  isPublished={quiz.published}
                 />
               </li>
             ))}
