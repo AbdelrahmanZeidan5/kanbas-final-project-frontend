@@ -26,7 +26,7 @@ export default function Dashboard() {
     number: generateRandomCourseNumber(), // Now the function is defined before use
     startDate: "2023-09-10",
     endDate: "2023-12-15",
-    image: "reactjs.jpg",
+    image: "/images/reactjs.jpg",
     description: "New Description",
   });
 
@@ -110,7 +110,7 @@ export default function Dashboard() {
             <div className="col" key={course._id}>
               <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none">
                 <div className="card rounded-3 overflow-hidden">
-                  <img src={`/images/${course.image}`} height="160" alt={course.image} />
+                  <img src={`/images/reactjs.jpg`} height="160" alt={course.image} />
                   <div className="card-body">
                     <span className="wd-dashboard-course-link" style={{ color: "navy", fontWeight: "bold" }}>
                       {course.name}
