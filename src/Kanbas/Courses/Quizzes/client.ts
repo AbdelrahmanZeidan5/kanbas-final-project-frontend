@@ -49,6 +49,18 @@ export const updateQuiz = async (quizId: string, quizData: any) => {
     }
 };
 
+// Delete a specific quiz by its ID
+export const deleteQuiz = async (quizId: string) => {
+    try {
+        const response = await axios.delete(`${QUIZZES_API}/${quizId}`);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to delete quiz:", error);
+        throw error;
+    }
+};
+
+
 // Create a new question for a specific quiz
 export const createQuestion = async (quizId: string, questionData: any) => {
     try {

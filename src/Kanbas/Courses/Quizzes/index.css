@@ -46,3 +46,22 @@
   .qa-table-border-bottom {
     border-bottom: 1px solid black;
   }
+
+.quiz-control-buttons-text {
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.quiz-icon {
+    color: green;
+}
+
+.wd-quiz-items {
+    border-left: 4px solid green;
+}
