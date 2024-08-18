@@ -31,6 +31,11 @@ export default function QuizControls() {
             id="wd-add-assignment"
             className="btn btn-lg btn-danger"
             onClick={handleAddQuiz}
+          ></button>
+          <button
+            id="wd-add-assignment"
+            className="btn btn-lg btn-danger"
+            onClick={handleAddQuiz}
           >
             <FaPlus className="me-2" />
             Quiz
