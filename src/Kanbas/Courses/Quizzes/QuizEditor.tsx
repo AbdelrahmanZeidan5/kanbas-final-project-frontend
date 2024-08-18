@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import QuestionTypeEditor from './QuestionTypeEditor';
 import { createQuiz, updateQuiz, createQuestion, updateQuestion, fetchQuizById, fetchQuestionsByQuizId, deleteQuestion } from './client';
 import { IoCalendarOutline, IoEllipsisVertical } from 'react-icons/io5';
@@ -13,6 +13,7 @@ const QuizEditor = () => {
     const [totalPoints, setTotalPoints] = useState(0);
     const [haveTimeLimit, setTimeLimit] = useState(false);
     const [editingQuestionIndex, setEditingQuestionIndex] = useState<number | null>(null);
+    const navigate = useNavigate();
     const [quizData, setQuizData] = useState<any>({
         title: '',
         description: '',
@@ -59,14 +60,20 @@ const QuizEditor = () => {
     };
 
     const handleCancelEdit = async () => {
-        setEditingQuestionIndex(null);
-        if (quizId) {
-            // Refetch the questions from the server to discard unsaved changes
-            const fetchedQuestions = await fetchQuestionsByQuizId(quizId);
-            setQuestions(fetchedQuestions);
-            updateTotalPoints(fetchedQuestions);
+        if (editingQuestionIndex !== null) {
+            setEditingQuestionIndex(null);
+            if (quizId) {
+                // Refetch the questions from the server to discard unsaved changes
+                const fetchedQuestions = await fetchQuestionsByQuizId(quizId);
+                setQuestions(fetchedQuestions);
+                updateTotalPoints(fetchedQuestions);
+            }
+        } else {
+            // Navigate back to the quiz list screen
+            navigate(`/Kanbas/Courses/${cid}/Quizzes`);
         }
     };
+    
 
     const handleDeleteQuestion = async (index: number, questionId: string) => {
         if (window.confirm("Are you sure you want to delete this question?")) {
@@ -110,6 +117,7 @@ const QuizEditor = () => {
             }
 
             alert('Quiz and questions saved successfully!');
+            navigate(`/Kanbas/Courses/${cid}/Quizzes`);
         } catch (error) {
             console.error('Error saving quiz:', error);
             alert('Failed to save quiz');
