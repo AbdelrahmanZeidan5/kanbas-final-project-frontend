@@ -5,12 +5,14 @@ import Courses from "./Courses";
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import "./styles.css";
-import { useEffect, useState } from "react";
-import * as client from "./Courses/client";
 import Account from "./Account";
 import ProtectedRoute from "./ProtectedRoute";
+import { useEffect, useState } from "react";
+import * as client from "./Courses/client";
+
 
 export default function Kanbas() {
+
   const [courses, setCourses] = useState<any[]>([]);
   const fetchCourses = async () => {
     const courses = await client.fetchAllCourses();
@@ -72,19 +74,22 @@ export default function Kanbas() {
             <Routes>
               <Route path="/" element={<Navigate to="Dashboard" />} />
               <Route path="/Account/*" element={<Account />} />
-              <Route path="Dashboard" element={
-                <ProtectedRoute>
-                  <Dashboard
-                    courses={courses}
-                    course={course}
-                    setCourse={setCourse}
-                    addNewCourse={addNewCourse}
-                    deleteCourse={deleteCourse}
-                    updateCourse={updateCourse}/>
-                </ProtectedRoute>
-              } />
-              
-              <Route path="Courses/:cid/*" element={<ProtectedRoute> <Courses courses={courses} /> </ProtectedRoute>} />
+              <Route
+                path="Dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="Courses/:cid/*"
+                element={
+                  <ProtectedRoute>
+                    <Courses courses={[]} /> {/* Pass an empty array for now */}
+                  </ProtectedRoute>
+                }
+              />
               <Route path="Calendar" element={<h1>Calendar</h1>} />
               <Route path="Inbox" element={<h1>Inbox</h1>} />
             </Routes>
@@ -92,4 +97,5 @@ export default function Kanbas() {
         </div>
       </div>
     </Provider>
-);}
+  );
+}
