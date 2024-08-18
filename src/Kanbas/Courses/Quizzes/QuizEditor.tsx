@@ -116,6 +116,7 @@ const QuizEditor = () => {
         }
     };
 
+    console.log("TT: ", quizData)
     return (
         <div className="quiz-editor p-4">
             <div className=''>
@@ -161,10 +162,10 @@ const QuizEditor = () => {
             <div>
                 {activeTab === 'details' && (
                     <div>
-                        <input type="text" placeholder={quizData.title} className='form-control mb-2'
+                        <input type="text" value={quizData.title} placeholder={quizData.title} className='form-control mb-2'
                             onChange={(e) => setQuizData({ ...quizData, title: e.target.value })} />
 
-                        <input type="text" placeholder={quizData.description} className='form-control mb-2'
+                        <input type="text" value={quizData.description} placeholder={quizData.description} className='form-control mb-2'
                             onChange={(e) => setQuizData({ ...quizData, description: e.target.value })} />
                         <div id='wd-quiz-instructions' className='mb-2 mt-3'>
                             Quiz Instructions:
@@ -248,15 +249,7 @@ const QuizEditor = () => {
                                         <input type="checkbox" id='showCorrectAnswers' checked={quizData.showCorrectAnswers} style={{ zoom: 1.25 }} className='mt-3'
                                             onChange={(e) => setQuizData({ ...quizData, showCorrectAnswers: e.target.checked })} />
                                         <label htmlFor="showCorrectAnswers" className='p-1 ms-2'>Show Correct Answers</label>
-                                        <div className='row mt-3'>
-                                            <label htmlFor="edit-points" className='col'>Points</label>
-                                            <input id="edit-points" type="number" className='form-control col me-3' min={0} placeholder={quizData.points}
-                                                onChange={(e) => {
-                                                    console.log("points" + e.target.value);
-                                                    setQuizData({ ...quizData, points: e.target.value })
-                                                    console.log("updated: " + quizData.points);
-                                                }} />
-                                        </div>
+                                        
                                         
                                         
                                     </div>
@@ -273,7 +266,7 @@ const QuizEditor = () => {
                                             <span className='fw-bold'>Due</span><br />
 
                                             <div className='input-group'>
-                                                <input type="date" className='form-control' placeholder={quizData.dueDate}
+                                                <input type="date" className='form-control' value={quizData.dueDate ? quizData.dueDate.slice(0, 10) : ""}
                                                     onChange={(e) => setQuizData({ ...quizData, dueDate: e.target.value })} />
                                                 <span className='input-group-text fs-5'><IoCalendarOutline /></span>
                                             </div>
@@ -284,7 +277,7 @@ const QuizEditor = () => {
                                                     <span className='fw-bold'>Available from</span><br />
 
                                                     <div className='input-group'>
-                                                        <input type="date" className='form-control' placeholder={quizData.availableFrom}
+                                                        <input type="date" className='form-control' value={quizData.availableFrom ? quizData.availableFrom.slice(0, 10) : ""}
                                                             onChange={(e) => setQuizData({ ...quizData, availableFrom: e.target.value })} />
                                                         <span className='input-group-text fs-5'><IoCalendarOutline /></span>
                                                     </div>
@@ -293,7 +286,7 @@ const QuizEditor = () => {
                                                     <span className='fw-bold'>Until</span><br />
 
                                                     <div className='input-group'>
-                                                        <input type="date" className='form-control' placeholder={quizData.until}
+                                                        <input type="date" className='form-control' value={quizData.availableUntil ? quizData.availableUntil.slice(0, 10) : ""}
                                                             onChange={(e) => setQuizData({ ...quizData, availableUntil: e.target.value })} />
                                                         <span className='input-group-text fs-5'><IoCalendarOutline /></span>
                                                     </div>

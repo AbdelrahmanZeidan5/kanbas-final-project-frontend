@@ -50,6 +50,18 @@ const QuizDetails = () => {
         canTake = false;
     }
 
+
+    const formatDate = (isoString: string) => {
+        const date = new Date(isoString);
+        return date.toLocaleString('en-US', {
+            month: 'short', // Sep
+            day: 'numeric', // 21
+            hour: 'numeric', // 1 PM
+            minute: 'numeric', // 00
+            hour12: true // 12-hour format
+        });
+    };
+
     return (
         <div>
             
@@ -120,10 +132,10 @@ const QuizDetails = () => {
                 </div>
                 <hr />
                 <div className="row m-2">
-                    <div className="col">{quiz.dueDate}</div>
+                    <div className="col">{formatDate(quiz.dueDate)}</div>
                     <div className="col">Everyone</div>
-                    <div className="col">{quiz.availableFrom}</div>
-                    <div className="col">{quiz.availableUntil}</div>
+                    <div className="col">{formatDate(quiz.availableFrom)}</div>
+                    <div className="col">{formatDate(quiz.availableUntil)}</div>
                 </div>
             </div>
             <hr />
