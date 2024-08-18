@@ -71,12 +71,27 @@ const Quizzes = () => {
     setSelectedQuiz({ id: quizId, title: quizTitle });
   };
 
+
+  
+
   const confirmDelete = async () => {
-    if (setSelectedQuiz) {
+    if (selectedQuiz) {
       await client.removeQuiz(selectedQuiz.id);
       dispatch(deleteQuiz(selectedQuiz.id));
       setSelectedQuiz(null);
+      // Remove the quiz from the local state
+      setQuizzes((prevQuizzes) =>
+        prevQuizzes.filter((quiz) => quiz._id !== selectedQuiz.id)
+      );
     }
+  };
+
+  const handlePublishToggle = (quizId: string, isPublished: boolean) => {
+    setQuizzes((prevQuizzes) =>
+      prevQuizzes.map((quiz) =>
+        quiz._id === quizId ? { ...quiz, published: isPublished } : quiz
+      )
+    );
   };
 
   const getAvailabilityStatus = (availableDate: string, availableUntilDate: string): string => {
@@ -95,6 +110,8 @@ const Quizzes = () => {
       return "Available";
     }
   };
+
+  
 
   return (
     <div id="wd-quizzes">
@@ -152,7 +169,9 @@ const Quizzes = () => {
                   quizTitle={quiz.title}
                   onDeleteClick={handleDeleteClick}
                   isPublished={quiz.published}
+                  onPublishToggle={handlePublishToggle}
                 />
+
               </li>
             ))}
           </ul>
