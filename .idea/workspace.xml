@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac5191b8-ab09-41de-9d57-0d313c532873" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/Account/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Account/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/Account/Signin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Account/Signin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/Account/Signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Account/Signup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/Account/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Account/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kanbas/Courses/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Courses/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/Dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/Dashboard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kanbas/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kanbas/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +33,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;quiz-list&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "monisha__changes",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kanbas-final-project-frontend" />
