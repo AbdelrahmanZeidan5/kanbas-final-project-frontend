@@ -28,6 +28,7 @@ export default function Kanbas() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="Courses" element={<Navigate to="/Kanbas/Dashboard" />} />
               <Route
                 path="Courses/:cid/*"
                 element={
