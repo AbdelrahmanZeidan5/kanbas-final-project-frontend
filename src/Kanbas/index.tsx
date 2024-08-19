@@ -38,6 +38,8 @@ export default function Kanbas() {
               />
               <Route path="Calendar" element={<h1>Calendar</h1>} />
               <Route path="Inbox" element={<h1>Inbox</h1>} />
+              <Route path="Node" element={<h1>Node Repo</h1>} />
+              <Route path="React" element={<h1>React Repo</h1>} />
             </Routes>
           </div>
         </div>

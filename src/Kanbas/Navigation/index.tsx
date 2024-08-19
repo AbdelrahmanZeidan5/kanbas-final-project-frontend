@@ -3,13 +3,17 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { LiaBookSolid } from "react-icons/lia";
 import { IoCalendarOutline } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
+import { FaReact } from "react-icons/fa";
+import { FaNode } from "react-icons/fa";
 export default function KanbasNavigation() {
   const { pathname } = useLocation();
   const links = [
     { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
     { label: "Courses",   path: "/Kanbas/Courses", icon: LiaBookSolid },
     { label: "Calendar",  path: "/Kanbas/Calendar",  icon: IoCalendarOutline },
-    { label: "Inbox",     path: "/Kanbas/Inbox",     icon: FaInbox },
+    { label: "Inbox", path: "/Kanbas/Inbox", icon: FaInbox },
+    { label: "Node", path: "https://github.com/AbdelrahmanZeidan5/kanbas-final-project-backend.git", icon: FaNode },
+    { label: "React", path: "https://github.com/AbdelrahmanZeidan5/kanbas-final-project-frontend.git", icon: FaReact },
   ];
   return (
     <div id="wd-kanbas-navigation" className="list-group rounded-0 bottom-0" style={{ minHeight: '100vh' }}>

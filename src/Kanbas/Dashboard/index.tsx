@@ -48,6 +48,7 @@ export default function Dashboard() {
     const newCourse = {
       ...course,
       number: generateRandomCourseNumber(),
+      createdBy: currentUser.username
     };
     const createdCourse = await client.createCourse(newCourse);
     setCourses([...courses, createdCourse]);
@@ -103,7 +104,7 @@ export default function Dashboard() {
             <div className="col" key={course._id}>
               <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none">
                 <div className="card rounded-3 overflow-hidden">
-                  <img src={`/images/reactjs.jpg`} height="160" alt={course.image} />
+                  <img src={`/images/${course.image}`} height="160" alt={course.image} />
                   <div className="card-body">
                     <span className="wd-dashboard-course-link" style={{ color: "navy", fontWeight: "bold" }}>
                       {course.name}

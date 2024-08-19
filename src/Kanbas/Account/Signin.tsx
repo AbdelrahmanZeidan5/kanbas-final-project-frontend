@@ -31,6 +31,14 @@ export default function Signin() {
             <button id="wd-signin-btn" onClick={signin} className="btn btn-primary w-100"> Sign in </button>
             <br />
             <Link id="wd-signup-link" to="/Kanbas/Account/Signup">Sign up</Link>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div>
+                <h3>Team 23:</h3>
+                <h5>Member: Abdelrahman Zeidan, Anastasia Sobolina, Jazmyn Harris, Monisha Vijeya, Nicholas Payson</h5>
+            </div>
         </div>
     );
 }
