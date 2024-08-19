@@ -42,19 +42,26 @@ export default function Modules() {
     }, []);
 
     
-  
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const faculty = currentUser.role === "FACULTY";
   
     return (
       <div>
-        <ModulesControls 
-          setModuleName={setModuleName} 
-          moduleName={moduleName} 
-          addModule={() => {
-            createModule({ name: moduleName });
-            setModuleName("");  
-          }} 
-        />
-        <br /><br /><br /><br />
+        {
+          faculty && 
+          <div>
+              <ModulesControls
+                setModuleName={setModuleName}
+                moduleName={moduleName}
+                addModule={() => {
+                  createModule({ name: moduleName });
+                  setModuleName("");
+                }}
+              />
+              <br /><br /><br /><br />
+          </div>
+        }
+        
         
         <ul id="wd-modules" className="list-group rounded-0">
           {modules
@@ -76,11 +83,15 @@ export default function Modules() {
                   />
                 )}
 
-                <ModuleControlButtons 
-                  moduleId={module._id} 
-                  deleteModule={(moduleId) => { removeModule(moduleId); }} 
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} 
-                />
+                  {
+                    faculty && 
+                    <ModuleControlButtons
+                      moduleId={module._id}
+                      deleteModule={(moduleId) => { removeModule(moduleId); }}
+                      editModule={(moduleId) => dispatch(editModule(moduleId))}
+                    />
+                }
+                
 
               </div>
               {module.lessons && (
