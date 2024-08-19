@@ -27,7 +27,7 @@ export default function Dashboard() {
     number: generateRandomCourseNumber(), // Now the function is defined before use
     startDate: "2023-09-10",
     endDate: "2023-12-15",
-    image: "/images/reactjs.jpg",
+    image: "reactjs.jpg",
     description: "New Description",
   });
 
