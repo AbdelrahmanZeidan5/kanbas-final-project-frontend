@@ -16,7 +16,7 @@ export default function Signin() {
             dispatch(setCurrentUser(currentUser));
             navigate("/Kanbas/Account/Profile");
         } catch (err: any) {
-            setError(err.response.data.message);
+            setError(err.message);
         }
     };
 
